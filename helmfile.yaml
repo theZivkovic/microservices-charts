@@ -1,0 +1,6 @@
+releases:
+  - name: items-release
+    namespace: default
+    chart: ./items-charts
+    values:
+      - ./items-charts/values.yaml
