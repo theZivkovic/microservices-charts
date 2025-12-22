@@ -1,0 +1,30 @@
+# Define authentication parameters
+auth:
+  username: "myuser"
+  password: "cN7g6N1yhe%"
+  database: "mydatabase"
+
+persistence:
+  enabled: true
+  storageClass: "standard"
+  size: "10Gi"
+
+# Configure service exposure
+service:
+  type: ClusterIP
+  port: 5432
+
+volumePermissions:
+  enabled: true
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+extraEnvVars:
+  - name: PG_TIMEZONE
+    value: "UTC"
