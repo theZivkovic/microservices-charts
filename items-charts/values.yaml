@@ -19,6 +19,33 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: "microservices-items"
 
+env:
+  - name: POSTGRES_HOST
+    valueFrom:
+      secretKeyRef:
+        name: microservices-secrets-postgresql
+        key: host
+  - name: POSTGRES_PORT
+    valueFrom:
+      secretKeyRef:
+        name: microservices-secrets-postgresql
+        key: port
+  - name: POSTGRES_DB
+    valueFrom:
+      secretKeyRef:
+        name: microservices-secrets-postgresql
+        key: database
+  - name: POSTGRES_USER
+    valueFrom:
+      secretKeyRef:
+        name: microservices-secrets-postgresql
+        key: username
+  - name: POSTGRES_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: microservices-secrets-postgresql
+        key: password
+
 # This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
 serviceAccount:
   # Specifies whether a service account should be created.

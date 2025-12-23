@@ -1,4 +1,9 @@
 releases:
+  - name: secrets-release
+    namespace: default
+    chart: ./secrets-charts
+    values:
+      - ./secrets-charts/values.yaml
   - name: items-release
     namespace: default
     chart: ./items-charts

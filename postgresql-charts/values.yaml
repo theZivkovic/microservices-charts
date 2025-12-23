@@ -1,8 +1,33 @@
 # Define authentication parameters
 auth:
-  username: "myuser"
-  password: "cN7g6N1yhe%"
-  database: "mydatabase"
+  existingSecret: "microservices-secrets-postgresql"
+  secretKeys:
+    userPasswordKey: "password"
+
+primary:
+  extraEnvVars:
+    - name: POSTGRES_USER
+      valueFrom:
+        secretKeyRef:
+          name: "microservices-secrets-postgresql"
+          key: "username"
+    - name: POSTGRES_DATABASE
+      valueFrom:
+        secretKeyRef:
+          name: "microservices-secrets-postgresql"
+          key: "database"
+readReplicas:
+  extraEnvVars:
+    - name: POSTGRES_USER
+      valueFrom:
+        secretKeyRef:
+          name: "microservices-secrets-postgresql"
+          key: "username"
+    - name: POSTGRES_DATABASE
+      valueFrom:
+        secretKeyRef:
+          name: "microservices-secrets-postgresql"
+          key: "database"
 
 persistence:
   enabled: true
