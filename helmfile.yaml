@@ -1,17 +1,17 @@
 releases:
   - name: secrets-release
     namespace: default
-    chart: ./secrets-charts
+    chart: /Users/dejanzivkovic/Projects/microservices/charts/secrets-charts
     values:
-      - ./secrets-charts/values.yaml
+      - /Users/dejanzivkovic/Projects/microservices/charts/secrets-charts/values.yaml
   - name: items-release
     namespace: default
-    chart: ./items-charts
+    chart: /Users/dejanzivkovic/Projects/microservices/charts/items-charts
     values:
-      - ./items-charts/values.yaml
+      - /Users/dejanzivkovic/Projects/microservices/charts/items-charts/values.yaml
   - name: postgres-release
     namespace: default
     chart: oci://registry-1.docker.io/bitnamicharts/postgresql
     version: 18.1.15
     values:
-      - ./postgresql-charts/values.yaml
+      - /Users/dejanzivkovic/Projects/microservices/charts/postgresql-charts/values.yaml

@@ -1,8 +1,9 @@
 fullnameOverride: "microservices-secrets"
 
 postgresql:
-  host: "postgres-release-postgresql"
+  host: "postgres-release-postgresql.default.svc.cluster.local"
   port: "5432"
   database: "mydatabase"
   username: "myuser"
   password: "cN7g6N1yhe"
+  postgresPassword: "hqWNdnRWVg"

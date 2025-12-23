@@ -1,38 +1,10 @@
-primary:
-  extraEnvVars:
-    - name: POSTGRESQL_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: "microservices-secrets-postgresql"
-          key: "password"
-    - name: POSTGRESQL_USER
-      valueFrom:
-        secretKeyRef:
-          name: "microservices-secrets-postgresql"
-          key: "username"
-    - name: POSTGRESQL_DATABASE
-      valueFrom:
-        secretKeyRef:
-          name: "microservices-secrets-postgresql"
-          key: "database"
-
-readReplicas:
-  extraEnvVars:
-    - name: POSTGRESQL_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: "microservices-secrets-postgresql"
-          key: "password"
-    - name: POSTGRESQL_USER
-      valueFrom:
-        secretKeyRef:
-          name: "microservices-secrets-postgresql"
-          key: "username"
-    - name: POSTGRESQL_DATABASE
-      valueFrom:
-        secretKeyRef:
-          name: "microservices-secrets-postgresql"
-          key: "database"
+auth:
+  existingSecret: microservices-secrets-postgresql
+  secretKeys:
+    adminPasswordKey: "postgresPassword"
+    userPasswordKey: "password"
+  username: "myuser"
+  database: "mydatabase"
 
 persistence:
   enabled: true
