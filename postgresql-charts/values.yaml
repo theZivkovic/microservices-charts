@@ -1,29 +1,34 @@
-# Define authentication parameters
-auth:
-  existingSecret: "microservices-secrets-postgresql"
-  secretKeys:
-    userPasswordKey: "password"
-
 primary:
   extraEnvVars:
-    - name: POSTGRES_USER
+    - name: POSTGRESQL_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: "microservices-secrets-postgresql"
+          key: "password"
+    - name: POSTGRESQL_USER
       valueFrom:
         secretKeyRef:
           name: "microservices-secrets-postgresql"
           key: "username"
-    - name: POSTGRES_DATABASE
+    - name: POSTGRESQL_DATABASE
       valueFrom:
         secretKeyRef:
           name: "microservices-secrets-postgresql"
           key: "database"
+
 readReplicas:
   extraEnvVars:
-    - name: POSTGRES_USER
+    - name: POSTGRESQL_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: "microservices-secrets-postgresql"
+          key: "password"
+    - name: POSTGRESQL_USER
       valueFrom:
         secretKeyRef:
           name: "microservices-secrets-postgresql"
           key: "username"
-    - name: POSTGRES_DATABASE
+    - name: POSTGRESQL_DATABASE
       valueFrom:
         secretKeyRef:
           name: "microservices-secrets-postgresql"
