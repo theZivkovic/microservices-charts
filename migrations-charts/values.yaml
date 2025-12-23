@@ -7,7 +7,7 @@ job:
   backoffLimit: 3
 
 database:
-  url: jdbc:postgresql://postgres-release-postgresql.default.svc.cluster.local:5432/mydatabase
+  url: jdbc:postgresql://postgres-release-postgresql:5432/mydatabase
   username: myuser
   passwordSecret:
     name: microservices-secrets-postgresql
