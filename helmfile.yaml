@@ -15,3 +15,8 @@ releases:
     version: 18.1.15
     values:
       - /Users/dejanzivkovic/Projects/microservices/charts/postgresql-charts/values.yaml
+  - name: migrations-release
+    namespace: default
+    chart: /Users/dejanzivkovic/Projects/microservices/charts/migrations-charts
+    values:
+      - /Users/dejanzivkovic/Projects/microservices/charts/migrations-charts/values.yaml

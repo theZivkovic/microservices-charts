@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{include "migrations-charts.fullname" .}}
+  labels:
+    app.kubernetes.io/name: {{include "migrations-charts.name" .}}
+spec:
+  backoffLimit: {{.Values.job.backoffLimit}}
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: liquibase
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{.Values.image.pullPolicy}}
+          env:
+            - name: LIQUIBASE_COMMAND_URL
+              value: {{.Values.database.url | quote}}
+            - name: LIQUIBASE_COMMAND_USERNAME
+              value: {{.Values.database.username | quote}}
+            - name: LIQUIBASE_COMMAND_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{.Values.database.passwordSecret.name}}
+                  key: {{.Values.database.passwordSecret.key}}
+          resources: {{- toYaml .Values.resources | nindent 12}}
