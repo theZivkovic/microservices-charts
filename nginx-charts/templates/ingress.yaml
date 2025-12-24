@@ -4,10 +4,6 @@ metadata:
   name: {{include "nginx-charts.fullname" .}}
 spec:
   ingressClassName: nginx
-  tls:
-    - hosts:
-        - "test.local"
-      secretName: tls-secret
   rules:
     - host: "test.local"
       http:
