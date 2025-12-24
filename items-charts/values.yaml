@@ -20,6 +20,8 @@ nameOverride: ""
 fullnameOverride: "microservices-items"
 
 env:
+  - name: AUDIT_LOGS_SERVICE_URL
+    value: microservices-audit-logs
   - name: POSTGRES_HOST
     valueFrom:
       secretKeyRef:
