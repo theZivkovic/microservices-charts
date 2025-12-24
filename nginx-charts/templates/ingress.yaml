@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{include "nginx-charts.fullname" .}}
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - "test.local"
+      secretName: tls-secret
+  rules:
+    - host: "test.local"
+      http:
+        paths:
+          - pathType: Prefix
+            path: /api/items
+            backend:
+              service:
+                name: microservices-items
+                port:
+                  number: 3000

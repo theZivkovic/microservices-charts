@@ -20,3 +20,17 @@ releases:
     chart: /Users/dejanzivkovic/Projects/microservices/charts/migrations-charts
     values:
       - /Users/dejanzivkovic/Projects/microservices/charts/migrations-charts/values.yaml
+  - name: nginx-ingress
+    namespace: default
+    createNamespace: true
+    chart: oci://registry-1.docker.io/bitnamicharts/nginx-ingress-controller
+    version: "12.0.7"
+    values:
+      - controller:
+          publishService:
+            enabled: true
+  - name: nginx-release
+    namespace: default
+    chart: /Users/dejanzivkovic/Projects/microservices/charts/nginx-charts
+    values:
+      - /Users/dejanzivkovic/Projects/microservices/charts/nginx-charts/values.yaml
