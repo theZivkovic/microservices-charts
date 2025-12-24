@@ -17,3 +17,10 @@ spec:
                 name: microservices-items
                 port:
                   number: 3000
+          - pathType: Prefix
+            path: /api/audit-logs
+            backend:
+              service:
+                name: microservices-audit-logs
+                port:
+                  number: 3000
