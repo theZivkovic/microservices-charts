@@ -21,7 +21,7 @@ fullnameOverride: "microservices-items"
 
 env:
   - name: AUDIT_LOGS_SERVICE_URL
-    value: microservices-audit-logs
+    value: http://microservices-audit-logs:3000/api/audit-logs
   - name: POSTGRES_HOST
     valueFrom:
       secretKeyRef:
