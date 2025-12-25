@@ -5,30 +5,30 @@ repositories:
 releases:
   - name: secrets-release
     namespace: default
-    chart: /Users/dejanzivkovic/Projects/microservices/charts/secrets-charts
+    chart: ./secrets-charts
     values:
-      - /Users/dejanzivkovic/Projects/microservices/charts/secrets-charts/values.yaml
+      - ./secrets-charts/values.yaml
   - name: items-release
     namespace: default
-    chart: /Users/dejanzivkovic/Projects/microservices/charts/items-charts
+    chart: ./items-charts
     values:
-      - /Users/dejanzivkovic/Projects/microservices/charts/items-charts/values.yaml
+      - ./items-charts/values.yaml
   - name: audit-logs-release
     namespace: default
-    chart: /Users/dejanzivkovic/Projects/microservices/charts/audit-logs-charts
+    chart: ./audit-logs-charts
     values:
-      - /Users/dejanzivkovic/Projects/microservices/charts/audit-logs-charts/values.yaml
+      - ./audit-logs-charts/values.yaml
   - name: postgres-release
     namespace: default
     chart: oci://registry-1.docker.io/bitnamicharts/postgresql
     version: 18.1.15
     values:
-      - /Users/dejanzivkovic/Projects/microservices/charts/postgresql-charts/values.yaml
+      - ./postgresql-charts/values.yaml
   - name: migrations-release
     namespace: default
-    chart: /Users/dejanzivkovic/Projects/microservices/charts/migrations-charts
+    chart: ./migrations-charts
     values:
-      - /Users/dejanzivkovic/Projects/microservices/charts/migrations-charts/values.yaml
+      - ./migrations-charts/values.yaml
   - name: nginx-ingress-controller
     namespace: default
     chart: ingress-nginx/ingress-nginx
@@ -45,6 +45,6 @@ releases:
             default: true
   - name: nginx-release
     namespace: default
-    chart: /Users/dejanzivkovic/Projects/microservices/charts/nginx-charts
+    chart: ./nginx-charts
     values:
-      - /Users/dejanzivkovic/Projects/microservices/charts/nginx-charts/values.yaml
+      - ./nginx-charts/values.yaml
