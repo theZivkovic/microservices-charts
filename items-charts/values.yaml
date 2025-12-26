@@ -20,29 +20,29 @@ nameOverride: ""
 fullnameOverride: "microservices-items"
 
 env:
-  - name: AUDIT_LOGS_SERVICE_URL
-    value: http://microservices-audit-logs:3000/api/audit-logs
-  - name: POSTGRES_HOST
+  - name: AppSettings__AuditLogService__BaseUrl
+    value: http://microservices-audit-logs:3000
+  - name: AppSettings__Database__Host
     valueFrom:
       secretKeyRef:
         name: microservices-secrets-postgresql
         key: host
-  - name: POSTGRES_PORT
+  - name: AppSettings__Database__Port
     valueFrom:
       secretKeyRef:
         name: microservices-secrets-postgresql
         key: port
-  - name: POSTGRES_DB
+  - name: AppSettings__Database__Database
     valueFrom:
       secretKeyRef:
         name: microservices-secrets-postgresql
         key: database
-  - name: POSTGRES_USER
+  - name: AppSettings__Database__User
     valueFrom:
       secretKeyRef:
         name: microservices-secrets-postgresql
         key: username
-  - name: POSTGRES_PASSWORD
+  - name: AppSettings__Database__Password
     valueFrom:
       secretKeyRef:
         name: microservices-secrets-postgresql
